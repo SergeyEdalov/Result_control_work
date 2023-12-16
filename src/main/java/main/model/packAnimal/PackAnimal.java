@@ -7,8 +7,7 @@ import java.util.Date;
 
 public class PackAnimal extends Animal {
 
-
-    public PackAnimal(Integer id, Date birthdate, String commands) {
-        super(id, birthdate, commands);
+    public PackAnimal(String name, Date birthdate, String commands) {
+        super(name, birthdate, commands);
     }
 }

@@ -3,22 +3,18 @@ package main.model;
 import java.util.Date;
 
 public abstract class Animal {
-    Integer id;
+    String name;
     Date birthdate;
     String commands;
 
-    public Animal(Integer id, Date birthdate, String commands) {
-        this.id = id;
+    public Animal(String name, Date birthdate, String commands) {
+        this.name = name;
         this.birthdate = birthdate;
         this.commands = commands;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    public Animal() {
 
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Date getBirthdate() {
@@ -35,5 +31,13 @@ public abstract class Animal {
 
     public void setCommands(String commands) {
         this.commands = commands;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

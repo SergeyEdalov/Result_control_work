@@ -3,7 +3,9 @@ package main.model.packAnimal;
 import java.util.Date;
 
 public class Donkey extends PackAnimal {
-    public Donkey(Integer id, Date birthdate, String commands) {
-        super(id, birthdate, commands);
+
+    public Donkey(String name, Date birthdate, String commands) {
+        super(name, birthdate, commands);
     }
 }
+

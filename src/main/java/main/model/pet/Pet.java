@@ -6,7 +6,8 @@ import java.util.Date;
 
 public class Pet extends Animal {
 
-    public Pet(Integer id, Date birthdate, String commands) {
-        super(id, birthdate, commands);
+    public Pet(String name, Date birthdate, String commands) {
+        super(name, birthdate, commands);
     }
 }
+
