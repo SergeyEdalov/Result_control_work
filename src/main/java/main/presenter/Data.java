@@ -14,13 +14,16 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Data {
+    public Data() {
+
+    }
 
     String requestTypeAnimal = "Enter type animal: ";
     String requestNameAnimal = "Enter name animal: ";
     String requestBirthdateAnimal = "Enter birthdate animal: ";
     String requestCommandAnimal = "Enter command animal: ";
 
-    public Animal getDataFromUser() throws ParseException {
+    public Animal getAnimalFromUser() throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat("d MMMM yyyy года");
         Scanner scanner = new Scanner(System.in);
         Animal animal = new Animal(){};
@@ -47,5 +50,18 @@ public class Data {
             default -> throw new IllegalStateException("Unexpected value: " + typeAnimal);
         }
         return animal;
+    }
+    public String getCommandFromUser () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(requestCommandAnimal);
+        String commandAnimal = scanner.next();
+        return commandAnimal;
+    }
+
+    public Integer getIdFromUser () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(requestCommandAnimal);
+        Integer idAnimal = scanner.nextInt();
+        return idAnimal;
     }
 }

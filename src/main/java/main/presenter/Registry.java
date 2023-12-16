@@ -1,33 +1,34 @@
 package main.presenter;
-
 import main.model.Animal;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 
 public class Registry {
-    Integer id;
-    List<Animal> animal;
 
-    public Registry(Integer id, List<Animal> animal) {
-        this.id = id;
-        this.animal = animal;
+    Map<Integer, Animal> animalList;
+
+    public Registry(Map<Integer, Animal> animalList) {
+        this.animalList = animalList;
     }
     public Registry() {
 
     }
-    protected void addAnimal(Animal animal) {
-        List<Animal> animals = new ArrayList<>();
-        animals.add(animal);
-        Registry registry = new Registry(id++, animals);
+    protected Registry addAnimal(Animal animal) {
+        Registry registry = new Registry(animalList);
+        animalList.put(animalList.size() + 1, animal);
+        return registry;
     }
-
-    public Integer getId() {
-        return id;
+    protected Registry teachCommand(Integer id, String text) {
+        Registry registry = new Registry(animalList);
+        for (Map.Entry<Integer, Animal> entity : animalList.entrySet()) {
+            if (entity.getKey().equals(id)) {
+                animalList.put(entity.getKey(),
+                        entity.getValue().setCommands(entity.getValue().getCommands()+ ", " + text));
+            }
+        }
+        return registry;
     }
-
-    public List<Animal> getAnimal() {
-        return animal;
+    public Map<Integer, Animal> getAnimalList() {
+        return animalList;
     }
 }

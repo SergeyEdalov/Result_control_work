@@ -2,15 +2,14 @@ package main.view;
 
 import main.model.Animal;
 import main.presenter.Registry;
-
-import java.util.List;
+import java.util.Map;
 
 public class View {
     public View() {
     }
 
     public void printCommand(Registry registry) {
-        List<Animal> animalsList = registry.getAnimal();
+        Map<Integer, Animal> animalsList = registry.getAnimalList();
         String command = animalsList.get(animalsList.size() - 1).getCommands();
         System.out.println(command);
     }

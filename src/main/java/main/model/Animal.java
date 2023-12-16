@@ -29,8 +29,9 @@ public abstract class Animal {
         return commands;
     }
 
-    public void setCommands(String commands) {
+    public Animal setCommands(String commands) {
         this.commands = commands;
+        return null;
     }
 
     public String getName() {
