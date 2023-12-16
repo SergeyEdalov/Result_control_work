@@ -1,4 +1,5 @@
 package main.model;
 
-public class Pet {
+public class Pet extends Animal{
+
 }
