@@ -4,13 +4,11 @@ import java.util.Date;
 
 public abstract class Animal {
     Integer id;
-    String type;
     Date birthdate;
     String commands;
 
-    public Animal(Integer id, String type, Date birthdate, String commands) {
+    public Animal(Integer id, Date birthdate, String commands) {
         this.id = id;
-        this.type = type;
         this.birthdate = birthdate;
         this.commands = commands;
     }
@@ -21,14 +19,6 @@ public abstract class Animal {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public Date getBirthdate() {
