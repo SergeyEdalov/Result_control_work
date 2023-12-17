@@ -1,7 +1,6 @@
 package main.model.pet;
 
 import main.model.Animal;
-
 import java.util.Date;
 
 public class Pet extends Animal {

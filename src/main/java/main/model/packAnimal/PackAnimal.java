@@ -1,7 +1,6 @@
 package main.model.packAnimal;
 
 import main.model.Animal;
-
 import java.util.Date;
 
 

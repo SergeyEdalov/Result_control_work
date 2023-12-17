@@ -18,15 +18,17 @@ public class Data {
 
     }
 
-    String requestTypeAnimal = "Enter type animal: ";
-    String requestNameAnimal = "Enter name animal: ";
-    String requestBirthdateAnimal = "Enter birthdate animal: ";
-    String requestCommandAnimal = "Enter command animal: ";
+    String requestTypeAnimal = "Введите тип животного: ";
+    String requestNameAnimal = "Введите имя животного: ";
+    String requestBirthdateAnimal = "Введите дату рождения животного: ";
+    String requestCommandAnimal = "Введите команду животного: ";
+    String requestIdAnimal = "Введите номер животного: ";
+    String requestCountMenu = "Введите пункт меню: ";
+
 
     public Animal getAnimalFromUser() throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("d MMMM yyyy года");
         Scanner scanner = new Scanner(System.in);
-        Animal animal = new Animal(){};
+        Animal animal;
 
         System.out.println(requestTypeAnimal);
         String typeAnimal = scanner.next();
@@ -36,32 +38,40 @@ public class Data {
 
         System.out.println(requestBirthdateAnimal);
         String birthdateAnimal = scanner.next();
-        Date date = format.parse(birthdateAnimal);
+        Date date = new SimpleDateFormat("dd-MM-yyyy").parse(birthdateAnimal);
 
         System.out.println(requestCommandAnimal);
         String commandAnimal = scanner.next();
         switch (typeAnimal) {
-            case ("Dog") -> animal = new Dog(nameAnimal, date, commandAnimal);
-            case ("Cat") -> animal = new Cat(nameAnimal, date, commandAnimal);
-            case ("Hamster") -> animal = new Hamster(nameAnimal, date, commandAnimal);
-            case ("Horse") -> animal = new Horse(nameAnimal, date, commandAnimal);
-            case ("Camel") -> animal = new Camel(nameAnimal, date, commandAnimal);
-            case ("Donkey") -> animal = new Donkey(nameAnimal, date, commandAnimal);
-            default -> throw new IllegalStateException("Unexpected value: " + typeAnimal);
+            case ("Собака") -> animal = new Dog(nameAnimal, date, commandAnimal);
+            case ("Кот") -> animal = new Cat(nameAnimal, date, commandAnimal);
+            case ("Хомяк") -> animal = new Hamster(nameAnimal, date, commandAnimal);
+            case ("Лошадь") -> animal = new Horse(nameAnimal, date, commandAnimal);
+            case ("Верблюд") -> animal = new Camel(nameAnimal, date, commandAnimal);
+            case ("Осёл") -> animal = new Donkey(nameAnimal, date, commandAnimal);
+            default -> throw new IllegalStateException("Неожиданное значение: " + typeAnimal);
         }
         return animal;
     }
-    public String getCommandFromUser () {
+
+    public String getCommandFromUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(requestCommandAnimal);
         String commandAnimal = scanner.next();
         return commandAnimal;
     }
 
-    public Integer getIdFromUser () {
+    public Integer getIdFromUser() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(requestCommandAnimal);
+        System.out.println(requestIdAnimal);
         Integer idAnimal = scanner.nextInt();
         return idAnimal;
+    }
+
+    public int getCountMenuFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(requestCountMenu);
+        int count = scanner.nextInt();
+        return count;
     }
 }
